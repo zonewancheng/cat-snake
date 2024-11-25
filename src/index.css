@@ -1,0 +1,161 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.cat-container {
+  width: 300px;
+  height: 300px;
+  position: relative;
+  margin: 0 auto;
+}
+
+.cat {
+  position: relative;
+  animation: bounce 2s infinite;
+}
+
+.ears {
+  position: relative;
+  z-index: 1;
+}
+
+.ear {
+  width: 50px;
+  height: 100px;
+  background: #ffd400;
+  position: absolute;
+  top: 0;
+  border-radius: 50% 50% 0 0;
+}
+
+.ear.left {
+  left: 50px;
+  transform: rotate(-15deg);
+}
+
+.ear.right {
+  right: 50px;
+  transform: rotate(15deg);
+}
+
+.ear::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 40px;
+  background: #000;
+  top: 0;
+  border-radius: 50% 50% 0 0;
+}
+
+.ear.left::after {
+  right: 0;
+}
+
+.face {
+  width: 200px;
+  height: 200px;
+  background: #ffd400;
+  border-radius: 50%;
+  position: relative;
+  margin: -50px auto 0;
+  z-index: 2;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.eyes {
+  position: relative;
+  top: 60px;
+  display: flex;
+  justify-content: space-around;
+  padding: 0 30px;
+}
+
+.eye {
+  width: 25px;
+  height: 25px;
+  background: #000;
+  border-radius: 50%;
+  position: relative;
+  animation: blink 3s infinite;
+}
+
+.shine {
+  width: 8px;
+  height: 8px;
+  background: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+}
+
+.nose {
+  width: 12px;
+  height: 8px;
+  background: #000;
+  border-radius: 50%;
+  position: absolute;
+  top: 90px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.cheeks {
+  position: relative;
+  top: 80px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 25px;
+}
+
+.cheek {
+  width: 40px;
+  height: 40px;
+  background: #ff4343;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: glow 2s infinite;
+}
+
+.mouth {
+  position: absolute;
+  top: 105px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.mouth-line {
+  width: 30px;
+  height: 10px;
+  border-radius: 0 0 30px 30px;
+  border-bottom: 3px solid #000;
+  position: relative;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes blink {
+  0%, 96%, 98%, 100% {
+    transform: scaleY(1);
+  }
+  97%, 99% {
+    transform: scaleY(0.1);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
